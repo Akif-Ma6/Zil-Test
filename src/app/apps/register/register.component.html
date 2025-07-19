@@ -1,0 +1,91 @@
+<div class="register flex align-items-center">
+    <h2>Register</h2>
+    <span>Please Fill in the Information Below</span>
+    <form [formGroup]="registerForm">
+        <div class="row">
+            <!-- First Name -->
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label mat-label> First Name</mat-label>
+                    <input matInput placeholder="Enter Your Last Name" type="text" formControlName="firstName">
+                    <mat-error>Field is Required</mat-error>
+                </mat-form-field>
+            </div>
+            <!-- Last Name -->
+            <div class="col-md-6">
+
+                <mat-form-field appearance="outline">
+                    <mat-label mat-label> Last Name</mat-label>
+                    <input matInput maxlength="10" type="text" placeholder="Enter Your Last Name"
+                        formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Age -->
+            <div class="col-md-6">
+
+                <mat-form-field appearance="outline">
+                    <mat-label mat-label>Age</mat-label>
+                    <input matInput placeholder="Enter Your Age" type="number" formControlName="age">
+                    <mat-error>Field is Required</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+<!-- Email -->
+                <mat-form-field appearance="outline">
+                    <mat-label mat-label>Work Email</mat-label>
+                    <input matInput type="email" placeholder="Enter Your Email" formControlName="email">
+                    <mat-error>Field is Required</mat-error>
+
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Gender -->
+            <div class="col-md-6">
+                <mat-label>Gender:</mat-label>
+                <mat-radio-group formControlName="gender">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">FeMale</mat-radio-button>
+                    <mat-radio-button value="Prefer Not to Say">Pefer Not to say</mat-radio-button>
+
+                </mat-radio-group>
+            </div>
+
+        </div>
+        <div class="row">
+            <!-- Password -->
+            <div class="col-md-6">
+
+                <mat-form-field appearance="outline">
+                    <mat-label mat-label>Password</mat-label>
+                    <input matInput placeholder="Enter Your Age" type="password" formControlName="password">
+                    <mat-error>Field is Required</mat-error>
+
+                </mat-form-field>
+            </div>
+            <!-- Confirm Password -->
+            <div class="col-md-6">
+
+                <mat-form-field appearance="outline">
+                    <mat-label mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" placeholder="Enter Your Last Name"
+                        formControlName="confirmPassword">
+                    <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('required')">Confirm Password is
+                        required</mat-error>
+                    <mat-error *ngIf="registerForm.hasError('passwordMismatch')">Passwords do not match</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- Agree terms -->
+        <div class="row">
+            <mat-checkbox formControlName="terms">
+                I Agree with Terms & Conditions
+            </mat-checkbox>
+        </div>
+        <!-- Button -->
+        <button [disabled]="!registerForm.valid" class="btn btn-primary" (click)="submit()">Register</button>
+    </form>
+</div>
