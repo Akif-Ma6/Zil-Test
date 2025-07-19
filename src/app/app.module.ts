@@ -11,11 +11,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule  } from '@angular/material/checkbox';
+import { HighlightInvalidDirective } from './apps/directives/highlight-invalid.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    HighlightInvalidDirective
   ],
   imports: [
     BrowserModule,
